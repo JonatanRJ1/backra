@@ -16,12 +16,12 @@
 3. **Configure Environment**
     - Edit `.env` with your database credentials
 
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=backra
-    DB_USERNAME=root
-    DB_PASSWORD=root
+    -   DB_CONNECTION=mysql
+    -   DB_HOST=127.0.0.1
+    -   DB_PORT=3306
+    -   DB_DATABASE=backra
+    -   DB_USERNAME=root
+    -   DB_PASSWORD=root
 
 4. **Generate Application Key**
     ```bash
