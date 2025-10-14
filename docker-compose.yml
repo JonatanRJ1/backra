@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql-backra
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "backra"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mantener/mysql_data:/var/lib/mysql
+    networks:
+      - backra-network
+
+volumes:
+  mysql_data:
+
+networks:
+  backra-network:
+    driver: bridge
