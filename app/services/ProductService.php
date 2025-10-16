@@ -34,8 +34,8 @@ class ProductService
     {
         try {
 
-            $productsQuery = Product::query();
-            $paginator = $productsQuery->paginate(10);
+            $productsQuery = Product::search(trim(request('query') ?? ''))->orderBy('id', 'desc');
+            $paginator = $productsQuery->paginate(request('per_page', 10));
     
             $products = $paginator->getCollection()->map(function ($product) {
                 return ProductData::from($product);

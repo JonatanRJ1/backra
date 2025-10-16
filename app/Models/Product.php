@@ -21,4 +21,19 @@ class Product extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'sku' => $this->sku,
+            'price' => $this->price,
+            'stock' => $this->stock,
+        ];
+    }
 }
