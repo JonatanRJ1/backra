@@ -120,4 +120,33 @@ class ProductService
         }
     }
 
+    /**
+     * Delete a product by its ID
+     */
+    public function deleteProduct(int $id): GenericResponseData
+    {
+        try {
+            $product = Product::find($id);
+            if (!$product) {
+                return new GenericResponseData(
+                    status: false,
+                    message: 'Product not found',
+                    code: 404
+                );
+            }
+            $product->delete();
+            return new GenericResponseData(
+                status: true,
+                message: 'Product deleted successfully',
+                code: 200
+            );
+        } catch (\Exception $e) {
+            return new GenericResponseData(
+                status: false,
+                message: 'Error deleting product',
+                code: 500,
+                error: $e->getMessage()
+            );
+        }
+    }
 }
