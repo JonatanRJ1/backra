@@ -12,5 +12,7 @@ class MetaData extends Data
         public int $per_page,
         public int $total,
         public int $last_page,
+        public int $from,
+        public int $to,
     ) {}
 }
